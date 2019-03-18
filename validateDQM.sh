@@ -43,7 +43,8 @@ grep root ${inList} | grep -v "#" | while read -r dsN fNP procN comm; do
 
     fO=${extN}_${lMod}_${dMod}.ps
 
-    ~/tools/makeDiff.sh ${dqmB} ${dqmA} ${fO} ${lMod} ${dMod} "${patt}" "${pattE}" >& ${fO}.log &
+    #~/tools/makeDiff.sh ${dqmB} ${dqmA} ${fO} ${lMod} ${dMod} "${patt}" "${pattE}" >& ${fO}.log &
+    source /afs/cern.ch/work/a/aioannou/tools/cms-reco-tools/makeDiff.sh ${dqmB} ${dqmA} ${fO} ${lMod} ${dMod} "${patt}" "${pattE}" >& ${fO}.log &
 
     pidList=${pidList}" "${!}
     export pidList

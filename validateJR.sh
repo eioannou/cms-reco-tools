@@ -24,14 +24,18 @@ cWD=`pwd`
 export pidList=""
 llistF=lastlist_${diffN}.txt
 echo Start processing at `date`
+echo ${dsN}, ${fNP}, ${procN}, ${comm} 
 grep root ${inList} | grep -v "#" | while read -r dsN fNP procN comm; do 
     fN=`echo ${baseA}/${fNP} | cut -d" " -f1 | sed -e "s?^${baseA}/??g"`
     #[ ! -f "${baseA}/${fN}" ] && echo Missing ${baseA}/${fN} && continue
+    #echo ${baseA}/${fN}
     if [ -f "${baseA}/${fN}" ]; then
+	echo "Mpika"
       extN=all_${diffN}_${dsN}
       mkdir -p ${extN}
       cd ${cWD}/${extN}
-      cp ~/tools/validate.C ./
+      #cp ~/tools/validate.C ./
+      cp /afs/cern.ch/work/a/aioannou/tools/cms-reco-tools/validate.C ./
       echo "Will run on ${fN} in ${cWD}/${extN}"
       echo "Now in `pwd`"
       #g++ -shared -o validate.so validate.C `root-config --cflags ` -fPIC
@@ -50,7 +54,8 @@ grep root ${inList} | grep -v "#" | while read -r dsN fNP procN comm; do
         extmN=all_mini_${diffN}_${dsN}
         mkdir -p ${extmN}
         cd ${cWD}/${extmN}
-        cp ~/tools/validate.C ./
+        #cp ~/tools/validate.C ./
+	cp /afs/cern.ch/work/a/aioannou/tools/cms-reco-tools/validate.C ./
         echo "Will run on ${mFN} in ${cWD}/${extmN}"
         echo "Now in `pwd`"
         echo -e "gSystem->Load(\"libFWCoreFWLite.so\");\n AutoLibraryLoader::enable();\n FWLiteEnabler::enable();\n 

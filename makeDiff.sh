@@ -7,7 +7,8 @@ lMod=${4}
 dOpt=${5}
 dirPattern=${6}
 dirPatternExclude=${7}
-cp ~/tools/compareValHists.C compareValHists.C
+#cp ~/tools/compareValHists.C compareValHists.C
+cp /afs/cern.ch/work/a/aioannou/tools/cms-reco-tools/compareValHists.C compareValHists.C
 echo "Running on f1 ${f1} f2 ${f2} fO ${fO} lMod ${lMod} dOpt ${dOpt} dirPattern ${dirPattern} dirPatternExclude ${dirPatternExclude}"
 echo -e "gROOT->SetStyle(\"Plain\");\n 
  .L compareValHists.C+ \n\
